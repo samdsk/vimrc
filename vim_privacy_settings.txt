@@ -1,0 +1,40 @@
+" Vim's Privacy Settings
+" Maintainer:  https://vimandgit.com
+"""
+" doN'T make any backups when writing the buffer to file
+set  nobackup
+set  nowritebackup
+
+" enabling the 'modeline' option allows us to annotate a file by setting
+" variables that are specific to that file - but this can be a security
+" risk for some people
+set  nomodeline
+
+" doN'T use tmp files when executing a shell cmd (like %!ls) inside Vim
+set  noshelltemp
+
+" store the buffer text in memory instead of a swapfile
+set  noswapfile
+
+" Vim saves the undo history in 'undodir' when it writes a buffer to file
+" and restores the undo history from the same file when it's read into a
+" buffer - turning this opt off tells Vim not use an undo file
+" - note that turning this option off doesN'T delete any undo files
+set  noundofile
+
+" the viminfo file "~/.viminfo" makes it possible to continue our session
+" from where we left off - the file is read when Vim starts and it's
+" written when Vim quits - the viminfo setting takes a comma separated
+" list of parameters that tell Vim what info to save - we can save a lot
+" of information in the viminfo file, including command line history,
+" search history, contents of nonempty registers, buffer list, and local
+" and global marks - this settings tells Vim not to save anything
+set  viminfo=
+
+" doN'T automatically save modified files on buffer switch
+set  noautowrite
+
+" when a file has changed outside of Vim, doN'T automatically read it
+" - instead prompt the user on what action to take
+set  noautoread
+"""

@@ -1,0 +1,58 @@
+" An Example of a Minimal Vim statusline with Important Options and Settings
+" An Nice Vim statusline for Beginners
+" Maintainer:  https://vimandgit.com
+" See https://vimandgit.com for a full explanation of the settings
+"""
+" pad one space
+set  statusline=%1(%)
+
+" display the number of the current buffer %n and the total num of buffers
+" see :h getbufinfo()
+let  mybuflisted = {'buflisted':1}
+set  statusline+=[BUFFER:\ %2.4n\ of\ %-2.4{len(getbufinfo(mybuflisted))}]
+
+" display the file name: %t is the tail of file in the current buffer
+" left justify with min width of 6 chars and max width of 30 chars
+set  statusline+=\ %-6.30t
+
+" display the preview window %w "[Preview]"
+set  statusline+=%(\ %w%)
+
+" display the fileformat &ff and encoding &fenc, or "none" if &fenc is ''
+set  statusline+=\ [%{&ff}\ -\ %{strlen(&fenc)?&fenc:'none'}]
+
+" display the type of file %y in the buffer - for example, "[vim]"
+" see :h 'filetype'
+set  statusline+=%(\ %y%)
+
+" the separation point between left and right aligned items is marked by %=
+set  statusline+=%=
+
+" display the readonly flag %r as "[RO]", and the modified flag %m as
+" "[+]" if modified or "[-]" if "modifiable" is off
+set  statusline+=%(\ %r\ %m%)
+
+" display the column number %c in the current real line
+set  statusline+=\ COL:\ %-6.9c
+
+" display the line number %l and the total number of lines %L in the buffer
+set  statusline+=\ %6.9l-%-6.9L
+
+" %p shows the relative pos of the displayed text in the current buffer
+" - like pressing <C-g> - zero pad with min width of 3 chars and add a %
+" symbol at the end - the % symbol is escaped with another % symbol
+" - that is why there are two % symbols, %%, after the %p item
+set  statusline+=\ %03p%%
+
+" display the word count - see :h wordcount()
+set  statusline+=\ %10.6{wordcount().words}\ WORDS
+
+" pad two spaces
+set  statusline+=%2(%)
+
+" display the ASCII value %b and the HEX value %B of char under cursor
+set  statusline+=[ASCII=%-4b\ HEX=%-4B]
+
+" pad one space
+set  statusline+=%1(%)
+"""
